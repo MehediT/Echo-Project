@@ -3,6 +3,7 @@ from pvrecorder import PvRecorder
 from pydub import AudioSegment
 import wave
 import struct
+import keyboard
 
 def audio_file_to_signal(file_path):
     """
@@ -44,14 +45,22 @@ def record_audio():
     audio = []
 
     try:
-        recorder.start()
-        print("Recording... Press Ctrl+C to stop.")
         while True:
-            frame = recorder.read()
-            audio.extend(frame)
+            recorder.start()
+            print("Recording... Press Ctrl+C to stop or 'r' to erase and redo.")
+            audio = []  # Clear audio list every time recording starts
+            while True:
+                if keyboard.is_pressed('r'):  # Check if 'r' is pressed for redo
+                    print("Redo recording...")
+                    recorder.stop()
+                    break  # Exit the loop and restart recording
+                frame = recorder.read()
+                audio.extend(frame)
     except KeyboardInterrupt:
+        # This will catch Ctrl+C
         recorder.stop()
         print("Recording stopped.")
+        # Save the audio file
         with wave.open('sample_voice/output_record.wav', 'w') as f:
             f.setparams((1, 2, 16000, 512, "NONE", "NONE"))
             f.writeframes(struct.pack("h" * len(audio), *audio))
