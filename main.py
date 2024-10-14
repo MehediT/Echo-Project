@@ -5,7 +5,7 @@ if __name__ == "__main__":
     # Path to your audio file (MP3 or WAV)
     record_audio()
 
-    audio_file = "sample_voice/output_record.wav" 
+    audio_file = "sample_voice/output_record.mp3" 
     # Get the audio signal and frame rate
     signal, rate = audio_file_to_signal(audio_file)
     

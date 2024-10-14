@@ -1,9 +1,15 @@
 import numpy as np
 from pvrecorder import PvRecorder
 from pydub import AudioSegment
-import wave
-import struct
-import keyboard
+
+import wave, struct, keyboard, time
+
+def countdown():
+    print("Starting recording in...")
+    for i in range(3, 0, -1):  # Countdown from 3 to 1
+        print(i)
+        time.sleep(1)
+    print("Recording started.")
 
 def audio_file_to_signal(file_path):
     """
@@ -46,6 +52,7 @@ def record_audio():
 
     try:
         while True:
+            countdown()
             recorder.start()
             print("Recording... Press Ctrl+C to stop or 'r' to erase and redo.")
             audio = []  # Clear audio list every time recording starts
@@ -61,7 +68,7 @@ def record_audio():
         recorder.stop()
         print("Recording stopped.")
         # Save the audio file
-        with wave.open('sample_voice/output_record.wav', 'w') as f:
+        with wave.open('sample_voice/output_record.mp3', 'w') as f:
             f.setparams((1, 2, 16000, 512, "NONE", "NONE"))
             f.writeframes(struct.pack("h" * len(audio), *audio))
     finally:
