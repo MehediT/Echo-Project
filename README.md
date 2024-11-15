@@ -8,14 +8,7 @@ Assurez-vous d'avoir **Python 3.6+** installé sur votre machine.
 
 ## Installation
 
-1. Clonez le dépôt ou téléchargez les fichiers du projet :
-
-   ```bash
-   git clone https://github.com/votre-repo/app-flask-couleur.git
-   cd app-flask-couleur
-   ```
-
-2. Créez un environnement virtuel et activez-le :
+1. Créez un environnement virtuel et activez-le :
 
    - Sur **Windows** :
      ```bash
@@ -28,13 +21,13 @@ Assurez-vous d'avoir **Python 3.6+** installé sur votre machine.
      source env/bin/activate
      ```
 
-3. Installez les dépendances requises :
+2. Installez les dépendances requises :
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Installez **PortAudio** (nécessaire pour la bibliothèque `SpeechRecognition`) :
+3. Installez **PortAudio** (nécessaire pour la bibliothèque `SpeechRecognition`) :
 
    - **macOS** :
      ```bash
@@ -47,7 +40,7 @@ Assurez-vous d'avoir **Python 3.6+** installé sur votre machine.
    - **Windows** :
      Téléchargez et installez [PortAudio](http://www.portaudio.com/download.html) pour votre système.
 
-5. Assurez-vous que `SpeechRecognition` peut accéder au microphone.
+54 Assurez-vous que `SpeechRecognition` peut accéder au microphone.
 
 ## Exécution de l'application
 
@@ -71,7 +64,3 @@ Assurez-vous d'avoir **Python 3.6+** installé sur votre machine.
 - Flask-SocketIO
 - SpeechRecognition
 - PortAudio (pour l'accès au microphone)
-
-```
-
-```
