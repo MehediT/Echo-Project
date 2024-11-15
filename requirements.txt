@@ -1,4 +1,5 @@
-Flask==2.3.3
+Flask==3.1.0
 Flask-SocketIO==5.3.3
 SpeechRecognition==3.10.0
 eventlet==0.33.3
+pyaudio==0.2.14

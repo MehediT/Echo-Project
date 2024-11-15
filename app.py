@@ -29,11 +29,11 @@ def recognize_color():
             audio = recognizer.listen(source, timeout=5)
             text = recognizer.recognize_google(audio, language="fr-FR").lower()
             recognized_color = None
-            if "bleu" in text:
+            if "bleu" in text or "blue" in text or "blou" in text:
                 recognized_color = "bleu"
             elif "rouge" in text:
                 recognized_color = "rouge"
-            elif "vert" in text:
+            elif "vert" in text or "verre" in text:
                 recognized_color = "vert"
             elif "jaune" in text:
                 recognized_color = "jaune"
